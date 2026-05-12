@@ -4,11 +4,18 @@ site_url: https://echoesran.github.io/notebook/
 repo_name: Echoesran/notebook 
 repo_url: https://github.com/Echoesran/notebook
 site_description: Echo's Notebook
-copyright: Copyright &copy; 2026 <a href="https://github.com/Echoesran" target="_blank" rel="noopener">Echoesran</a>
+copyright: '本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用。'
 
-#[UI]
-theme: 
+theme:
   name: material
+  features:
+    - navigation.tabs
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+  language: 'zh'
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -18,28 +25,74 @@ theme:
         name: 切换至夜间模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: black
       toggle:
         icon: material/brightness-4
         name: 切换至日间模式
-  language: zh
-  #custom_dir: overrides
-  icon: 
-    logo: material/notebook-outline
-  # font:
-  #   text: LXGW WenKai
-  #   code: JetBrains Mono
-  features:
-    - content.code.copy
-    - content.code.annotate
-    - navigation.footer
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.indexes
-    - navigation.top
-    - search.highlight
-    - search.share
-    - search.suggest
+  font:
+    text: Noto Serif SC
+    code: Roboto Mono
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - meta
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: underscore
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_css:
+  - 'from_oi_wiki/css/extra.css?v=13'
+  - css/status.css
+
+extra_javascript:
+  - 'from_oi_wiki/js/extra.js'
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'
 
 nav:
   - Home:
+    - home/index.md
     - 关于我: home/aboutme.md
