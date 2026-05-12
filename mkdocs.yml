@@ -9,3 +9,37 @@ copyright: Copyright &copy; 2026 <a href="https://github.com/Echoesran" target="
 #[UI]
 theme: 
   name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: 切换至夜间模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换至日间模式
+  language: zh
+  #custom_dir: overrides
+  icon: 
+    logo: material/notebook-outline
+  # font:
+  #   text: LXGW WenKai
+  #   code: JetBrains Mono
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.footer
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+
+nav:
+  - Home:
+    - 关于我: home/aboutme.md
