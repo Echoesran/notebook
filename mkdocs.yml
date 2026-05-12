@@ -94,5 +94,5 @@ plugins:
 
 nav:
   - Home:
-    - home/index.md
-    - 关于我: home/aboutme.md
+    - index.md
+    - 关于我: aboutme.md
